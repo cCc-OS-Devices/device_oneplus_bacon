@@ -165,7 +165,7 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 # PHONY
-BUILD_BROKEN_PHONY_TARGETS := true
+#BUILD_BROKEN_PHONY_TARGETS := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -184,7 +184,7 @@ TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_oppo
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # SELinux
-include device/qcom/sepolicy-legacy/sepolicy.mk
+include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 

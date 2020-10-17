@@ -47,7 +47,7 @@
 using android::base::Trim;
 using android::base::GetProperty;
 using android::base::ReadFileToString;
-using android::init::property_set;
+using ::android::base::SetProperty;
 
 __attribute__ ((weak))
 void init_target_properties()
@@ -77,16 +77,16 @@ static void init_alarm_boot_properties()
          * 8 -> KPDPWR_N pin toggled (power key pressed)
          */
         if (Trim(boot_reason) == "3" || tmp == "true")
-            property_set("ro.alarm_boot", "true");
+            SetProperty("ro.alarm_boot", "true");
         else
-            property_set("ro.alarm_boot", "false");
+            SetProperty("ro.alarm_boot", "false");
     }
 }
 
 void vendor_load_properties()
 {
     // Init a dummy BT MAC address, will be overwritten later
-    property_set("ro.boot.btmacaddr", "00:00:00:00:00:00");
+    SetProperty("ro.boot.btmacaddr", "00:00:00:00:00:00");
     init_target_properties();
     init_alarm_boot_properties();
 }

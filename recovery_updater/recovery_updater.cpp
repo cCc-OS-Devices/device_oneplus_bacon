@@ -176,8 +176,7 @@ Value * VerifyTrustZoneFn(const char *name, State *state, const std::vector<std:
     ret = 0;
     size = tz_version.size();
     for (i = 0; i < size; i++) {
-        uiPrintf(state, "Comparing TZ version %s to %s",
-                tz_version[i].c_str(), current_tz_version);
+        //uiPrintf(state, "Comparing TZ version %s to %s", tz_version[i].c_str(), current_tz_version);
         if (strncmp(tz_version[i].c_str(), current_tz_version, strlen(tz_version[i].c_str())) == 0) {
             ret = 1;
             break;
@@ -190,4 +189,3 @@ Value * VerifyTrustZoneFn(const char *name, State *state, const std::vector<std:
 void Register_librecovery_updater_oppo() {
     RegisterFunction("oppo.verify_trustzone", VerifyTrustZoneFn);
 }
-

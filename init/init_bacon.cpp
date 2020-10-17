@@ -39,7 +39,7 @@
 
 using android::base::ReadFileToString;
 using android::base::Split;
-using android::init::property_set;
+using ::android::base::SetProperty;
 
 void import_kernel_cmdline(const std::function<void(const std::string&, const std::string&)>& fn) {
     std::string cmdline;
@@ -58,9 +58,9 @@ static void import_kernel_nv(const std::string& key, const std::string& value)
     if (key.empty()) return;
 
     if (key == "oppo.rf_version") {
-        property_set("ro.oppo.rf_version", value.c_str());
+        SetProperty("ro.oppo.rf_version", value.c_str());
     } else if (key == "oppo.pcb_version") {
-        property_set("ro.oppo.pcb_version", value.c_str());
+        SetProperty("ro.oppo.pcb_version", value.c_str());
     }
 }
 
